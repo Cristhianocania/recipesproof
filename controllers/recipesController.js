@@ -5,17 +5,13 @@ const Recipes= require ('../models/Recipes');
 //agregar receta
 
 exports.add = async (req,res) => {
-const recipe = new Recipes(req.body);
-
-
-/*IN mongoDB. According to the reference response it raises 11000 if a insert for an existing key, 
-and 11001 if instead of the insert is made a update even though the text of the error, 
-for the latter case, says 11000 .*/
-
 try {
+    const recipe = new Recipes(req.body);
 
-    await product.save();
+    await recipe.save();
     res.json({message:'Nueva receta agregada'});
+    res.json (recipe); //se devuelven en json
+
     }catch(error){
 
        res.status(400).json({

@@ -65,30 +65,27 @@ exports.show = async (req,res,next) =>{
 exports.update = async (req,res,next) =>{
 
     try {
-        let newRecipe = req.body; // se recibe peticion se rescatan las propiedades de la receta
-
-            const recipe = await Recipe.findById(req.params.id); //vamos a la bdd y rescatamos el regsitro 
-        
-
-        const recipeUpdated = await Recipes.findOneAndUpdate(
-        {  _id: req.params.id},
-        newRecipe,
-        {new:true}
-        );
-        res.json({
-            message:'receta actualizada correctamente'
+        const recipe = await Recipes.findByIdAndUpdate(
+            {_id: req.params.id},
+            req.body,
+            {new:true},
+        )
+        .populate('recipe')  //populate va y trae los datos asociados
+        .populate({
+            path:'recipes.recipe',
+            model:'Recipes'
         });
-       
 
+        res.json(recipe);
+        
     } catch (error) {
-            res.status(400).json({
-                message: 'Error al procesar la peticion'
-            })
-        }
-     
-     
-     };
-     
+        res.status(400).json({
+            message:'Error al procesar la peticion'
+        });
+        
+    }
+} ;
+
 
 
 //delete receta

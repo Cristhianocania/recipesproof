@@ -2,7 +2,7 @@
 const mongoose = require ('mongoose');
 const Schema = mongoose.Schema;
 
-const recipessSchema = new Schema({
+const recipesSchema = new Schema({
 
     titulo:{
         type: String,
@@ -36,4 +36,4 @@ const recipessSchema = new Schema({
     },
 });
 
-module.exports= mongoose.model ('Recipes',recipessSchema); 
+module.exports= mongoose.model ('Recipes',recipesSchema); 

@@ -20,8 +20,8 @@ module.exports = function() {          //function que genere las rutas
 
     router.get('/recipes/:id',recipesController.show);
     router.put('/recipes/:id',recipesController.update);
-    router.delete('/recipes/:id',recipessController.delete);
-    router.get('/products/search/:query',productsController.search);
+    router.delete('/recipes/:id',recipesController.delete);
+    router.get('/recipes/search/:query',recipesController.search);
 
 
 

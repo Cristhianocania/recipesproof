@@ -34,7 +34,7 @@ exports.list = async (req,res ) => {
             console.log(error);
             res.send(error);
             next();
-
+            
         }
 
 }; //luego de este paso hay que generar una ruta para acceder a esta accion (creacion de rutas)

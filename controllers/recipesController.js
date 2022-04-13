@@ -65,17 +65,17 @@ exports.show = async (req,res,next) =>{
 exports.update = async (req,res,next) =>{
 
     try {
+        
         const recipe = await Recipes.findByIdAndUpdate(
             {_id: req.params.id},
             req.body,
             {new:true},
         )
-        .populate('recipe')  //populate va y trae los datos asociados
-        .populate({
-            path:'recipes.recipe',
-            model:'Recipes'
-        });
-
+        if(!recipe){
+            res.status(404).json({
+                message: 'La receta no existe'
+            });
+        }
         res.json(recipe);
         
     } catch (error) {
@@ -95,6 +95,7 @@ exports.delete = async (req,res,next) =>{
     try {
         await Recipes.findOneAndDelete(
             {  _id: req.params.id});
+            
             res.status(204).json({
             
             });

@@ -65,9 +65,9 @@ exports.show = async (req,res,next) =>{
 exports.update = async (req,res,next) =>{
 
     try {
-        let newRecipe = req.body; // se recibe peticion se rescatan las propiedades del producto
+        let newRecipe = req.body; // se recibe peticion se rescatan las propiedades de la receta
 
-            const product = await Product.findById(req.params.id); //vamos a la bdd y recatamos el regsitro 
+            const recipe = await Recipe.findById(req.params.id); //vamos a la bdd y rescatamos el regsitro 
         
 
         const recipeUpdated = await Recipes.findOneAndUpdate(
@@ -97,9 +97,11 @@ exports.delete = async (req,res,next) =>{
 
     try {
         await Recipes.findOneAndDelete(
-        {  _id: req.params.id});
-        
-        res.status(204);
+            {  _id: req.params.id});
+            res.status(204).json({
+            
+            });
+                   
         
        
 

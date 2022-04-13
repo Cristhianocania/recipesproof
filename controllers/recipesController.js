@@ -9,8 +9,8 @@ try {
     const recipe = new Recipes(req.body);
 
     await recipe.save();
-    res.json({message:'Nueva receta agregada'});
-    res.json (recipe); //se devuelven en json
+    res.json({message:'Nueva receta agregada'},recipe);
+   
 
     }catch(error){
 

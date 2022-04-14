@@ -1,24 +1,7 @@
 //importamos modelo Recipes
 const Recipes= require ('../models/Recipes');
 
-const uploadImage= require('../utils/base64');
-const fs = require('fs');
 
-
-const upload = fs (uploadImage).single('image');
-
-
-
-
-exports.fileUpload = (req,res,next)=>{
-    upload(req,res, function(error) {
-        if (error){
-            res.json({message: error});
-        }
-        return next();
-
-    });
-};
 
 //agregar receta
 

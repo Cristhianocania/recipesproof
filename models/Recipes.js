@@ -1,9 +1,6 @@
 //importamos mongoose
 const mongoose = require ('mongoose');
 const Schema = mongoose.Schema;
-var http=require('http');
-const fs = require("fs");
-const mineType = require("mime-types");
 
 const recipesSchema = new Schema({
 

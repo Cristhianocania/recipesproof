@@ -25,7 +25,7 @@ const recipesSchema = new Schema({
         
     },
     imagen:{
-        type: Date,
+        type: string,
         default:"sin imagen"
     },
     fecha_alta:{

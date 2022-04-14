@@ -67,16 +67,17 @@ exports.update = async (req,res,next) =>{
 
     try {
         
-        
+        let newdate= req.body;
+
+        newdate.fecha_mod = Date.now; 
 
         const recipe = await Recipes.findByIdAndUpdate(
             {_id: req.params.id},
-            req.body,
+            newdate,
             {new:true},
 
         )
 
-        recipe.fecha_mod = Date.now; 
 
         if(!recipe){
             res.status(404).json({

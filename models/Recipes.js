@@ -27,7 +27,7 @@ const recipesSchema = new Schema({
     },
     fecha_alta:{
         type: Date,
-        default:Date.now,
+        
        
     },
     fecha_mod:{

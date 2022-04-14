@@ -22,7 +22,7 @@ const recipesSchema = new Schema({
         
     },
     imagen:{
-        type: string,
+        type: String,
         default:"sin imagen"
     },
     fecha_alta:{

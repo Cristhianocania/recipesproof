@@ -67,18 +67,13 @@ exports.update = async (req,res,next) =>{
 
     try {
         
-        let newdate= req.body;
-
-        newdate.fecha_mod = Date.now; 
-
         const recipe = await Recipes.findByIdAndUpdate(
             {_id: req.params.id},
-            newdate,
+            req.body,
             {new:true},
 
+            
         )
-
-
         if(!recipe){
             res.status(404).json({
                 message: 'La receta no existe'

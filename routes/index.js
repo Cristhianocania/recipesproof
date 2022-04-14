@@ -13,7 +13,7 @@ module.exports = function() {          //function que genere las rutas
 
 
 
-    router.get('/',console.log("hola"));
+ 
     router.get('/recipes',recipesController.list);
     router.post('/recipes',recipesController.add); 
     

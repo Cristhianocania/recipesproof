@@ -1,6 +1,9 @@
 //importamos mongoose
 const mongoose = require ('mongoose');
 const Schema = mongoose.Schema;
+var http=require('http');
+const fs = require("fs");
+const mineType = require("mime-types");
 
 const recipesSchema = new Schema({
 
@@ -22,7 +25,8 @@ const recipesSchema = new Schema({
         
     },
     imagen:{
-        type: String,
+        type: Date,
+        default:"sin imagen"
     },
     fecha_alta:{
         type: Date,

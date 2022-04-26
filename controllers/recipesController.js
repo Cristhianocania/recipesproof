@@ -74,7 +74,7 @@ exports.update = async (req,res,next) =>{
             {new:true},
 
            
-            changedate.date_modified(Date.now());
+            changedate.date_modified(Date.now())
         )
 
                   

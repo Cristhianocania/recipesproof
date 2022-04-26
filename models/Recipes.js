@@ -23,8 +23,8 @@ const recipesSchema = new Schema({
     },
     image:{
         type: String,
-        default:"sin image
-"
+        default:"sin imagen"
+
     },
     date_creation:{
         type: Date,

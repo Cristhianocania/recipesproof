@@ -66,18 +66,24 @@ exports.show = async (req,res,next) =>{
 exports.update = async (req,res,next) =>{
 
     try {
-        let changedate = this;
+        
         const recipe = await Recipes.findByIdAndUpdate(
 
             {_id: req.params.id},
             req.body,
             {new:true},
 
-           
-            changedate.date_modified(Date.now())
+            
         )
 
-                  
+
+        /*
+        recipesSchema.pre('save', function preSave(next){
+            var changedate = this;
+            changedate.date_modified(Date.now());
+            next();
+          }); // actualizAR FEHCA
+          */
 
         
         if(!recipe){

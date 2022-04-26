@@ -4,34 +4,35 @@ const Schema = mongoose.Schema;
 
 const recipesSchema = new Schema({
 
-    titulo:{
+    title:{
         type: String,
         trim: true, 
        
 
     },
-    ingredientes:{
+    ingredients:{
         type: String,
         trim: true, 
 
     },
-    preparacion:{
+    preparation:{
         type: String,
         trim: true, 
         
         
     },
-    imagen:{
+    image:{
         type: String,
-        default:"sin imagen"
+        default:"sin image
+"
     },
-    fecha_alta:{
+    date_creation:{
         type: Date,
         default:Date.now,
         
        
     },
-    fecha_mod:{
+    date_modified:{
         type: Date,
         default:Date.now,
        

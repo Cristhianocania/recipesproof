@@ -68,12 +68,22 @@ exports.update = async (req,res,next) =>{
     try {
         
         const recipe = await Recipes.findByIdAndUpdate(
+
             {_id: req.params.id},
             req.body,
             {new:true},
 
             
         )
+
+        recipesSchema.pre('save', function preSave(next){
+            var changedate = this;
+            changedate.date_modified(Date.now());
+            next();
+          }); // actualizAR FEHCA
+          
+
+        
         if(!recipe){
             res.status(404).json({
                 message: 'La receta no existe'

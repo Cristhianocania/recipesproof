@@ -38,5 +38,13 @@ const recipesSchema = new Schema({
        
     },
 });
+recipesSchema.pre('save', function preSave(next){ /*findByIdAndUpdate */
+
+    console.log("pase por aca");
+
+    var changedate = this;
+    changedate.date_modified= Date.now();
+    next();
+  }); // actualizAR FEHCA
 
 module.exports= mongoose.model ('Recipes',recipesSchema); 

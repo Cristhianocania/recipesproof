@@ -26,9 +26,6 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(cors());
 
 app.use('/',routes());
-router.get('/', (req, res) => {
-    res.send("CRUD RECIPES :)")
-  });  
 
 
 app.post('/recipes', (req , res) => {
@@ -38,12 +35,7 @@ app.post('/recipes', (req , res) => {
         email: "henry@email.com"
     }
 
-    jwt.sign({user}, 'secretkey', {expiresIn: '1d'}, (err, token) => {
-        res.json({
-            token
-        });
-    });
-
+  
 });
 
 app.post('/recipes', verifyToken, (req , res) => {
@@ -73,7 +65,7 @@ function verifyToken(req, res, next){
      }
 }
 
-index.verifyToken= verifyToken;
+app.verifyToken= verifyToken;
 /*********** */
 
 app.listen(process.env.PORT || 5000); //nos da el puerto heroku por defecto en caso de que no va estar el 5000

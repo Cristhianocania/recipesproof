@@ -10,8 +10,8 @@ try {
     const recipe = new Recipes(req.body);
 
     await recipe.save();
-    res.json(recipe); // c
-    res.status(201).json(recipe)
+    res.json(recipe); // 
+  
 
    
 

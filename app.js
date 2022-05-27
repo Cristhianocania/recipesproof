@@ -8,6 +8,7 @@ var indexRouter = require('./routes/index');
 var recipesRouter = require('./routes/recipes');
 
 
+
 /*configuracion de mongoose para la conexion*/
 mongoose.Promise= global.Promise
 mongoose.connect(

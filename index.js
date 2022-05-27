@@ -26,6 +26,10 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(cors());
 
 app.use('/',routes());
+router.get('/', (req, res) => {
+    res.send("CRUD RECIPES :)")
+  });  
+
 
 app.post('/recipes', (req , res) => {
     const user = {

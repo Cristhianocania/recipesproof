@@ -12,7 +12,11 @@ module.exports = function() {          //function que genere las rutas
 
 
 
- 
+    router.get('/', (req, res) => {
+        res.send("CRUD RECIPES :)")
+      });  
+
+      
     router.get('/recipes',recipesController.list);
     router.post('/recipes', (req,res,next) => {req.index.verifyToken(req,res,next)},recipesController.add); 
 

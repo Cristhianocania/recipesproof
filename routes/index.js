@@ -7,14 +7,15 @@ const router = express.Router();
 //importacionde controladores
 const recipesController = require('../controllers/recipesController');
 
+router.get('/', (req, res) => {
+  res.send("CRUD RECIPES :)")
+});  
 
 module.exports = function() {          //function que genere las rutas
 
 
 
-    router.get('/', (req, res) => {
-        res.send("CRUD RECIPES :)")
-      });  
+ 
 
       
     router.get('/recipes',recipesController.list);

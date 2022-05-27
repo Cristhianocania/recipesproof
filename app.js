@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({extended:true}));
     //habilitar cors
 app.use(cors());
 
-app.use('/',routes());
+app.use('/',routes);
 
 
 app.post('/recipes', (req , res) => {

@@ -13,7 +13,7 @@ module.exports = function() {          //function que genere las rutas
 
     router.get('/', function(req, res, next) {
         res.send("CRUD RECIPES :)")
-      });
+      });  
 
  
     router.get('/recipes',recipesController.list);

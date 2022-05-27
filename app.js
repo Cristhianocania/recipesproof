@@ -30,7 +30,13 @@ app.use('/', indexRouter);
 app.use('/recipes', recipesRouter);
 
 
-app.post('/user', (req , res) => {
+app.get("/api", (req , res) => {
+    res.json({
+        mensaje: "Nodejs and JWT"
+    });
+});
+
+app.post("/api/login", (req , res) => {
     const user = {
         id: 1,
         nombre : "Henry",
@@ -42,9 +48,10 @@ app.post('/user', (req , res) => {
             token
         });
     });
+
 });
 
-app.post('/upost', verifyToken, (req , res) => {
+app.post("/api/posts", verifyToken, (req , res) => {
 
     jwt.verify(req.token, 'secretkey', (error, authData) => {
         if(error){
@@ -63,15 +70,13 @@ function verifyToken(req, res, next){
      const bearerHeader =  req.headers['authorization'];
 
      if(typeof bearerHeader !== 'undefined'){
-          const bearerToken = bearerHeader.split(" ")[1]; //corta la parte del espacio ' <token>'
+          const bearerToken = bearerHeader.split(" ")[1];
           req.token  = bearerToken;
           next();
      }else{
          res.sendStatus(403);
      }
 }
-
-app.verifyToken= verifyToken;
 /*********** */
 
 app.listen(process.env.PORT || 5000); //nos da el puerto heroku por defecto en caso de que no va estar el 5000

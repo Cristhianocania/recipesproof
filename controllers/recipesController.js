@@ -11,6 +11,8 @@ try {
 
     await recipe.save();
     res.json(recipe); // c
+    res.status(201).json(recipe)
+
    
 
     }catch(error){

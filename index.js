@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser= require('body-parser');
 const cors = require('cors');
 const app = express();//instancia de express
+const jwt = require ('jsonwebtoken');
 
 const routes = require ('./routes');
 
@@ -26,18 +27,49 @@ app.use(cors());
 
 app.use('/',routes());
 
- // habilitar la carpeta uploads como carpeta statica y publica para que un cliete vea la imagen de un producto
+app.post('/recipes', (req , res) => {
+    const user = {
+        id: 1,
+        nombre : "Henry",
+        email: "henry@email.com"
+    }
 
+    jwt.sign({user}, 'secretkey', {expiresIn: '1d'}, (err, token) => {
+        res.json({
+            token
+        });
+    });
 
- 
-
-/* app.get('/', function(req,res){
-
-    res.send('hola mundo ee eeeeeeeeeeeeeeeeeeewey');
 });
 
-/*ruta de tipo get .
-REQUEST= peticion que llega a nuestro servidor web o backend. 
-response=objeto a traves el cual nuestro servidor va a responder*/
+app.post('/recipes', verifyToken, (req , res) => {
+
+    jwt.verify(req.token, 'secretkey', (error, authData) => {
+        if(error){
+            res.sendStatus(403);
+        }else{
+            res.json({
+                    mensaje: "Post fue creado",
+                    authData
+                });
+        }
+    });
+});
+
+// Authorization: Bearer <token>
+function verifyToken(req, res, next){
+     const bearerHeader =  req.headers['authorization'];
+
+     if(typeof bearerHeader !== 'undefined'){
+          const bearerToken = bearerHeader.split(" ")[1]; //corta la parte del espacio ' <token>'
+          req.token  = bearerToken;
+          next();
+     }else{
+         res.sendStatus(403);
+     }
+}
+
+index.verifyToken= verifyToken;
+/*********** */
 
 app.listen(process.env.PORT || 5000); //nos da el puerto heroku por defecto en caso de que no va estar el 5000

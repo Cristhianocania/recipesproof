@@ -2,6 +2,7 @@
 
 const express = require ('express');
 const router = express.Router();
+const jwt = require ('jsonwebtoken');
 
 
 //importacionde controladores
@@ -17,7 +18,20 @@ module.exports = function() {          //function que genere las rutas
 
       
     router.get('/recipes',recipesController.list);
-    router.post('/recipes', (req,res,next) => {req.app.verifyToken(req,res,next)},recipesController.add); 
+    router.post('/recipes',verifyToken, (req , res) => {
+
+        jwt.verify(req.token, 'secretkey', (error, authData) => {
+            if(error){
+                res.sendStatus(403);
+            }else{
+                res.json({
+                        mensaje: "Post fue creado",
+                        authData
+                    });
+            }
+        });
+    },recipesController.add); 
+    
 
     
     router.put('/recipes/:id' ,recipesController.update);

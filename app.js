@@ -4,8 +4,9 @@ const bodyParser= require('body-parser');
 const cors = require('cors');
 const app = express();//instancia de express
 const jwt = require ('jsonwebtoken');
+var indexRouter = require('./routes/index');
+var recipesRouter = require('./routes/recipes');
 
-const routes = require ('./routes');
 
 /*configuracion de mongoose para la conexion*/
 mongoose.Promise= global.Promise
@@ -25,20 +26,25 @@ app.use(bodyParser.urlencoded({extended:true}));
     //habilitar cors
 app.use(cors());
 
-app.use('/',routes);
+app.use('/', indexRouter);
+app.use('/recipes', recipesRouter);
 
 
-app.post('/recipes', (req , res) => {
+app.post('/user', (req , res) => {
     const user = {
         id: 1,
         nombre : "Henry",
         email: "henry@email.com"
     }
 
-  
+    jwt.sign({user}, 'secretkey', {expiresIn: '32s'}, (err, token) => {
+        res.json({
+            token
+        });
+    });
 });
 
-app.post('/recipes', verifyToken, (req , res) => {
+app.post('/upost', verifyToken, (req , res) => {
 
     jwt.verify(req.token, 'secretkey', (error, authData) => {
         if(error){

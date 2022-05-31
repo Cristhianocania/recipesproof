@@ -1,13 +1,6 @@
 //importamos modelo Recipes
 const Recipes= require ('../models/Recipes');
 const jwt = require ('jsonwebtoken');
-const fetch = require('node-fetch')
-
-
-
-fetch('https://jsonplaceholder.typicode.com/users')
-    .then(res => res.json())
-    .then(json => console.log(json));
 
 /*
 // Authorization: Bearer <token>

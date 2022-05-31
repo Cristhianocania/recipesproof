@@ -1,8 +1,15 @@
 //importamos modelo Recipes
 const Recipes= require ('../models/Recipes');
 const jwt = require ('jsonwebtoken');
+const fetch = require('node-fetch')
 
 
+
+fetch('https://jsonplaceholder.typicode.com/users')
+    .then(res => res.json())
+    .then(json => console.log(json));
+
+/*
 // Authorization: Bearer <token>
 function verifyToken(req, res, next){
     const bearerHeader =  req.headers['authorization'];
@@ -14,19 +21,20 @@ function verifyToken(req, res, next){
     }else{
         res.sendStatus(403);
     }
-}
+}*/
+/******** */
+  /*  jwt.sign({recipe}, 'secretkey', {expiresIn: '1000s'}, (err, token) => {
+        res.json({
+            token
+        });
+    });
+*/
 
 //agregar receta
 
 exports.add = async (req,res) => {
 try {
     const recipe = new Recipes(req.body);
-
-    jwt.sign({recipe}, 'secretkey', {expiresIn: '1000s'}, (err, token) => {
-        res.json({
-            token
-        });
-    });
 
     await recipe.save();
     res.json(recipe); // 

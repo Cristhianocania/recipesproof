@@ -37,6 +37,11 @@ const recipesSchema = new Schema({
         default:Date.now,
        
     },
+    id_user:{
+        type:Mixed,
+        trim:true
+       
+    }
 });
 recipesSchema.pre('save', function preSave(next){ /*findByIdAndUpdate */
 

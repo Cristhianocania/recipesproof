@@ -12,7 +12,7 @@ const recipesController = require('../controllers/recipesController');
 
 module.exports = function() {          //function que genere las rutas
 
-    router.get('/recipes',recipesController.list);
+    router.get('/recipess',recipesController.list);
     router.post('/recipes',verifyToken, (req , res) => {
 
         jwt.verify(req.token, 'secretkey', (error, authData) => {

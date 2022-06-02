@@ -26,18 +26,6 @@ app.use(cors());
 
 app.use('/',routes());
 
- // habilitar la carpeta uploads como carpeta statica y publica para que un cliete vea la imagen de un producto
+app.listen(5000);
 
-
- 
-
-/* app.get('/', function(req,res){
-
-    res.send('hola mundo ee eeeeeeeeeeeeeeeeeeewey');
-});
-
-/*ruta de tipo get .
-REQUEST= peticion que llega a nuestro servidor web o backend. 
-response=objeto a traves el cual nuestro servidor va a responder*/
-
-app.listen(process.env.PORT || 5000); //nos da el puerto heroku por defecto en caso de que no va estar el 5000
+//app.listen(process.env.PORT || 5000); //nos da el puerto heroku por defecto en caso de que no va estar el 5000

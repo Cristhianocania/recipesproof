@@ -22,7 +22,7 @@ module.exports = function() {          //function que genere las rutas
     router.get('/recipes/:id',recipesController.show);
 
     router.get('/',(req,res)=>{
-        res.send("ASD")
+        res.send("CRUD RECIPES WITH NODEJS+EXPRESS")
     });
 
 

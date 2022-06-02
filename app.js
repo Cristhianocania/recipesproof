@@ -26,8 +26,8 @@ app.use(bodyParser.urlencoded({extended:true}));
     //habilitar cors
 app.use(cors());
 
-app.use('/',indexRouter);
-app.use('/recipes',recipesRouter);
+app.use('/',indexRouter());
+app.use('/recipes',recipesRouter());
 
 
 

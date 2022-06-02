@@ -10,4 +10,4 @@ module.exports = function() {          //function que genere las rutas
 
     router.get('/users',usersController.list);
     return router;
-};
+};   

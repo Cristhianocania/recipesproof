@@ -1,4 +1,5 @@
 const express = require ('express'); //exportacion de express
+var path = require('path');
 const mongoose = require('mongoose');
 const bodyParser= require('body-parser');
 const cors = require('cors');
@@ -30,3 +31,5 @@ app.use('/',indexRouter);
 app.use('/recipes',recipesRouter);
 
 app.listen(process.env.PORT || 5000); //nos da el puerto heroku por defecto en caso de que no va estar el 5000
+
+module.exports = app;

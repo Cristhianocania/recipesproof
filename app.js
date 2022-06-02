@@ -3,9 +3,11 @@ const mongoose = require('mongoose');
 const bodyParser= require('body-parser');
 const cors = require('cors');
 const app = express();//instancia de express
-const jwt = require ('jsonwebtoken');
-var indexRouter = require('./routes/index');
-var recipesRouter = require('./routes/recipes');
+
+const indexRouter = require('./routes/index');
+const recipesRouter = require('./routes/recipes');
+const usersRouter = require('./routes/users');
+
 
 
 
@@ -28,7 +30,9 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(cors());
 
 app.use('/', indexRouter);
-app.use('/recipess', recipesRouter);
+app.use('/recipes', recipesRouter);
+app.use('/users', usersRouter);
+
 
 
 app.listen(process.env.PORT || 5000); //nos da el puerto heroku por defecto en caso de que no va estar el 5000

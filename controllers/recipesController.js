@@ -1,6 +1,6 @@
 //importamos modelo Recipes
 const Recipes= require ('../models/Recipes');
-const jwt = require ('jsonwebtoken');
+//const jwt = require ('jsonwebtoken');
 
 /*
 // Authorization: Bearer <token>

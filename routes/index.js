@@ -7,7 +7,7 @@ const router = express.Router();
 //importacionde controladores
 
 
-module.exports = function() {         
+       
 
  
     router.get('/', (req,res) => {
@@ -16,5 +16,4 @@ module.exports = function() {
     });
 
  
-    return router;
-};
+    module.exports= router;

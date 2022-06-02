@@ -4,7 +4,9 @@ const bodyParser= require('body-parser');
 const cors = require('cors');
 const app = express();//instancia de express
 
-const routes = require ('./routes');
+const indexRouter = require ('./routes/index');
+const recipesRouter = require ('./routes/recipes');
+
 
 /*configuracion de mongoose para la conexion*/
 mongoose.Promise= global.Promise
@@ -24,6 +26,9 @@ app.use(bodyParser.urlencoded({extended:true}));
     //habilitar cors
 app.use(cors());
 
-app.use('/',routes());
+app.use('/',indexRouter);
+app.use('./recipes',recipesRouter);
+
+
 
 app.listen(process.env.PORT || 5000); //nos da el puerto heroku por defecto en caso de que no va estar el 5000

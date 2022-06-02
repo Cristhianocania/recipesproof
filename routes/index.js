@@ -12,7 +12,7 @@ module.exports = function() {
  
     router.get('/', (req,res) => {
 
-        res.send("asd")
+        res.send("Bienvenido a RECIPES TALLER 6")
     });
 
  

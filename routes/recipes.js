@@ -14,12 +14,6 @@ module.exports = function() {          //function que genere las rutas
 
     router.get('/recipes',recipesController.list);
 
- 
-    router.get('/', (req,res) => {
-
-        res.send("asd")
-    });
-
     
     router.post('/recipes',recipesController.add); 
     

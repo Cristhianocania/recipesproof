@@ -6,11 +6,11 @@ const router = express.Router();
 const recipesController = require('../controllers/recipesController');
     //function que genere las rutas
 
-    router.get('/recipes',recipesController.list);
-    router.post('/recipes',recipesController.add); 
-    router.put('/recipes/:id' ,recipesController.update);
-    router.delete('/recipes/:id',recipesController.delete);
-    router.get('/recipes/search/:query',recipesController.search);
-    router.get('/recipes/:id',recipesController.show);
+    router.get('/',recipesController.list);
+    router.post('/',recipesController.add); 
+    router.put('/:id' ,recipesController.update);
+    router.delete('/:id',recipesController.delete);
+    router.get('/search/:query',recipesController.search);
+    router.get('/:id',recipesController.show);
 
     module.exports=router;

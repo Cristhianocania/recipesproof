@@ -26,7 +26,7 @@ app.use(bodyParser.urlencoded({extended:true}));
     //habilitar cors
 app.use(cors());
 
-app.use('/',indexRouter());
-app.use('/recipes',recipesRouter());
+app.use('/',indexRouter);
+app.use('/recipes',recipesRouter);
 
 app.listen(process.env.PORT || 5000); //nos da el puerto heroku por defecto en caso de que no va estar el 5000

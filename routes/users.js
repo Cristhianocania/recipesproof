@@ -1,7 +1,7 @@
 //configuracion de rutas para nuestra api
 
-const express = require ('express');
-const router = express.Router();
+// const express = require ('express');
+// const router = express.Router();
 
 
 //importacionde controladores

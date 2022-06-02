@@ -27,7 +27,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(cors());
 
 app.use('/',indexRouter);
-app.use('./recipes',recipesRouter);
+app.use('/recipes',recipesRouter);
 
 
 

@@ -4,8 +4,8 @@ const Recipes= require ('../models/Recipes');
 
 
 //agregar receta
-module.exports= {
-add : async (req,res) => {
+
+exports.add = async (req,res) => {
 try {
     const recipe = new Recipes(req.body);
 
@@ -21,12 +21,12 @@ try {
    })
 }
 
-},
+};
 
 
 
 //primera  accion :list
-list :async (req,res ) => {
+exports.list = async (req,res ) => {
 
     try{
         const recipe = await Recipes.find({}); //recipes =  recupera la lista de recetas del modelo 
@@ -38,11 +38,11 @@ list :async (req,res ) => {
 
         }
 
-}, //luego de este paso hay que generar una ruta para acceder a esta accion (creacion de rutas)
+}; //luego de este paso hay que generar una ruta para acceder a esta accion (creacion de rutas)
 
 
 //leer receta por id
-show : async (req,res,next) =>{
+exports.show = async (req,res,next) =>{
 
     try {
         const recipe = await Recipes.findById(req.params.id);
@@ -58,12 +58,12 @@ show : async (req,res,next) =>{
             message:'Error al procesar la peticion'
         })
     }
-},
+}
 
 
 //actulaizar receta
 
-update : async (req,res,next) =>{
+exports.update = async (req,res,next) =>{
 
    
     try {
@@ -87,11 +87,12 @@ update : async (req,res,next) =>{
         });
         
     }
-} ,
+} ;
+
 
 //delete receta
 
-delete : async (req,res,next) =>{
+exports.delete = async (req,res,next) =>{
 
     try {
         await Recipes.findOneAndDelete(
@@ -109,10 +110,10 @@ delete : async (req,res,next) =>{
             message:'Error al procesar la peticion'
         });
     }
-},
+}
 
 //buscar
-search :async (req,res,next)=> {
+exports.search =async (req,res,next)=> {
     try {
     
           const recipes =await Recipes.find({
@@ -126,7 +127,4 @@ search :async (req,res,next)=> {
             message:'Error al procesar la peticion'
         });
     }
-    }
-
-
-}
+    };

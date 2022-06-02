@@ -54,6 +54,7 @@ exports.list = async (req,res ) => {
         res.json (recipe); //se devuelven en json
         }catch(error){
             console.log(error);
+            
             res.send(error);
             next();
 

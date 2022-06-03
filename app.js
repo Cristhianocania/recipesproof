@@ -6,7 +6,7 @@ const app = express();//instancia de express
 const jwt = require('jsonwebtoken');
 const routes = require ('./routes');
 
-app.set('secretKey',"sebastian")
+app.set('secretKey',"sebas")
 
 
 /*configuracion de mongoose para la conexion*/

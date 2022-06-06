@@ -2,8 +2,7 @@
 
 const express = require ('express');
 const router = express.Router();
-import fetch from "node-fetch";
-
+import * as fetch from 'node-fetch';
 //importacionde controladores
 const recipesController = require('../controllers/recipesController');
 

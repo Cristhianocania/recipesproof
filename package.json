@@ -16,6 +16,7 @@
     "fs": "^0.0.1-security",
     "jsonwebtoken": "^8.5.1",
     "mime": "^3.0.0",
-    "mongoose": "^6.2.10"
+    "mongoose": "^6.2.10",
+    "node-fetch": "^3.2.5"
   }
 }

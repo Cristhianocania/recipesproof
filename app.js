@@ -5,7 +5,7 @@ const cors = require('cors');
 const app = express();//instancia de express
 const jwt = require('jsonwebtoken');
 const routes = require ('./routes');
-var createError = require('http-errors');
+const createError = require('http-errors');
 const fetch = require ('node-fetch'); //libreria para consumir apis
 
 fetch("https://pokeapi.co/api/v2/pokemon/ditto")
@@ -15,7 +15,7 @@ fetch("https://pokeapi.co/api/v2/pokemon/ditto")
         console.log (resp);
       })
 
-app.set('secretKey','09d25e094faa6ca2556c818166b7a9563b93f7099f6f0f4caa6cf63b88e8d3e7');
+//app.set('secretKey','09d25e094faa6ca2556c818166b7a9563b93f7099f6f0f4caa6cf63b88e8d3e7');
 
 
 /*configuracion de mongoose para la conexion*/
@@ -37,7 +37,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(cors());
 app.use('/',routes());
 
-function validateUser(req,res,next){
+/*function validateUser(req,res,next){
     jwt.verify(req.headers['x-access-token'],req.app.get("secretKey"),function(err,decoded){
       if(err){
         res.json({message:err.message})
@@ -48,7 +48,7 @@ function validateUser(req,res,next){
       }
     })
   }
-  app.validateUser = validateUser;
+  app.validateUser = validateUser;*/
 
 
   app.use(function(req, res, next) {

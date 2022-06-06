@@ -2,7 +2,7 @@
 
 const express = require ('express');
 const router = express.Router();
-const fetch = require ('node-fetch'); //libreria para consumir apis
+import fetch from "node-fetch";
 
 //importacionde controladores
 const recipesController = require('../controllers/recipesController');
@@ -24,7 +24,7 @@ module.exports = function() {          //function que genere las rutas
     router.get('/recipes/:id',recipesController.show);
 
     router.get('/',(req,res)=>{
-        
+
         fetch("https://pokeapi.co/api/v2/pokemon/ditto")
         .then((respuesta) => {
           return respuesta.json()

@@ -2,6 +2,8 @@
 
 const express = require ('express');
 const router = express.Router();
+const axios = require('axios');
+
 
 //importacionde controladores
 const recipesController = require('../controllers/recipesController');
@@ -25,6 +27,13 @@ module.exports = function() {          //function que genere las rutas
     router.get('/',(req,res)=>{
 
         res.send("CRUD RECIPES");
+
+        let url1 ='https://pokeapi.co/api/v2/pokemon/ditto';
+
+axios.get(url1).then(response => {
+  console.log(response);
+});
+ 
       });
 
 

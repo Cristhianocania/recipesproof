@@ -6,6 +6,14 @@ const app = express();//instancia de express
 const jwt = require('jsonwebtoken');
 const routes = require ('./routes');
 const createError = require('http-errors');
+const axios = require('axios');
+
+let url1 ='https://pokeapi.co/api/v2/pokemon/ditto';
+
+axios.get(url1).then(response => {
+  console.log(response);
+});
+ 
 
 //app.set('secretKey','09d25e094faa6ca2556c818166b7a9563b93f7099f6f0f4caa6cf63b88e8d3e7');
 

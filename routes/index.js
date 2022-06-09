@@ -43,8 +43,9 @@ module.exports = function() {          //function que genere las rutas
           }
         }
 
-axios.post(url1,data,config).then(response => {
-  console.log(response);
+axios.get(url1,data,config)
+.then(res => {
+  console.log(res.data);
 });
  
       });

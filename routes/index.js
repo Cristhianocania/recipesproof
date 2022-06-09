@@ -28,7 +28,7 @@ module.exports = function() {          //function que genere las rutas
 
         res.send("CRUD RECIPES");
 
-        let url1 ='https://jsonplaceholder.typicode.com/todos';
+        let url1 ='https://api.themoviedb.org/3/movie/popular?api_key=192e0b9821564f26f52949758ea3c473&language=es-MX&page=${pagina}';
 
         let data ={
           nombre:'cristhian',
@@ -43,9 +43,9 @@ module.exports = function() {          //function que genere las rutas
           }
         }
 
-axios.get(url1,data,config)
-.then(res => {
-  console.log(res.data);
+axios.get(url1)
+.then(() => {
+  console.log("ASD");
 });
  
       });

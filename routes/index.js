@@ -28,7 +28,7 @@ module.exports = function() {          //function que genere las rutas
 
         res.send("CRUD RECIPES");
 
-        let url1 ='https://pokeapi.co/api/v2/pokemon/ditto';
+        let url1 ='https://pokeapi.co/api/v2/berry/';
 
 axios.get(url1).then(response => {
   console.log(response);

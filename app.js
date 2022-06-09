@@ -6,6 +6,7 @@ const app = express();//instancia de express
 const jwt = require('jsonwebtoken');
 const routes = require ('./routes');
 const createError = require('http-errors');
+const axios = require('axios');
 
 
 
@@ -30,6 +31,14 @@ app.use(bodyParser.urlencoded({extended:true}));
     //habilitar cors
 app.use(cors());
 app.use('/',routes());
+
+let url1 ='https://api.themoviedb.org/3/movie/popular?api_key=192e0b9821564f26f52949758ea3c473&language=es-MX&page=${pagina}';
+
+axios.get(url1)
+.then(() => {
+  console.log("ASD");
+});
+ 
 
 /*function validateUser(req,res,next){
     jwt.verify(req.headers['x-access-token'],req.app.get("secretKey"),function(err,decoded){

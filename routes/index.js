@@ -28,9 +28,22 @@ module.exports = function() {          //function que genere las rutas
 
         res.send("CRUD RECIPES");
 
-        let url1 ='https://pokeapi.co/api/v2/berry/';
+        let url1 ='https://jsonplaceholder.typicode.com/todos';
 
-axios.get(url1).then(response => {
+        let data ={
+          nombre:'cristhian',
+          edad:31,
+          alias:'jurgen'
+        }
+
+        let config={
+          headers:{
+            Authorization:"bearer asdddasnfabfnasbfn",
+
+          }
+        }
+
+axios.post(url1,data,config).then(response => {
   console.log(response);
 });
  

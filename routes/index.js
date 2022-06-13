@@ -2,6 +2,7 @@
 
 const express = require ('express');
 const router = express.Router();
+const axiosCx = require('../utils/axiosConection');
 
 
 //importacionde controladores
@@ -25,7 +26,7 @@ module.exports = function() {          //function que genere las rutas
 
     router.get('/',(req,res)=>{
 
-        res.send("CRUD RECIPES");
+       axiosCx.userRecipe;
 
       });
 

@@ -7,6 +7,7 @@ const UserService = require ("../services/UserService")
 
 exports.add = async (req,res) => {
 try {
+    
     console.log("Entre a recetas", req.headers)
     let user = await UserService.getUser(req.headers.authorization);
     console.log("recipes, fuia user", user)

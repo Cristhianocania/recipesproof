@@ -16,9 +16,12 @@ try {
     console.log("fui a Users", user.data);
     return user.data;
 }catch(error){
-        console.log(error);
-    }
+    res.status(401).json({
+        message: 'El token es invalido'
+ 
+})
 
+}
 }
 
 module.exports= {

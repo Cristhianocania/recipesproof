@@ -12,7 +12,9 @@ getUser = async (token)=> {
 
 try {
     config.headers.Authorization = token;
-    return await axios.get(url,config);
+    let user = await axios.get(url,config);
+    console.log("fui a Users", user.data);
+    return user.data;
 }catch(error){
         console.log(error);
     }

@@ -7,10 +7,15 @@ const UserService = require ("../utils/UserService")
 
 exports.add = async (req,res) => {
 try {
-    let user = await UserService.getUser(req.headers.Authorization);
-    const recipe = new Recipes(req.body);
-    recipes.user_id = user.id;
+    console.log("Entre a recetas", req.headers)
+    let user = await UserService.getUser(req.headers.authorization);
+    console.log("recipes, fuia user", user)
+    let body = req.body;
+    body.user_id = user.id;
+    const recipe = new Recipes(body);
+    console.log("guardando receta",body)
     let recipe_saved = await recipe.save();
+    console.log("guardada receta",recipe_saved)
     res.status(201).json(recipe_saved); // c
    
     }catch(error){

@@ -6,36 +6,27 @@ const recipesSchema = new Schema({
 
     title:{
         type: String,
-        trim: true, 
-       
-
+        trim: true
     },
     ingredients:{
         type: String,
-        trim: true, 
-
+        trim: true
     },
     preparation:{
         type: String,
-        trim: true, 
-        
-        
+        trim: true
     },
     image:{
         type: String,
         default:"sin imagen"
-
     },
     date_creation:{
         type: Date,
-        default:Date.now,
-        
-       
+        default:Date.now
     },
     date_modified:{
         type: Date,
-        default:Date.now,
-       
+        default:Date.now      
     },
     user_id:{
         type:String

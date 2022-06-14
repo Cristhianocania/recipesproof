@@ -19,8 +19,7 @@ module.exports = function() {          //function que genere las rutas
 
     router.get('/',(req,res)=>{
 
-       axiosCx.userRecipe;
-
+      res.send("CRUDRECIPES");
       });
 
 

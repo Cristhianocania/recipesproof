@@ -1,18 +1,18 @@
 //importamos modelo Recipes
 const Recipes= require ('../models/Recipes');
-
+const UserService = require ("../utils/UserService")
 
 
 //agregar receta
 
 exports.add = async (req,res) => {
 try {
+    let user = await UserService.getUser(req.headers.Authorization);
     const recipe = new Recipes(req.body);
-
-    await recipe.save();
-    res.json(recipe); // c
+    recipes.user_id = user.id;
+    let recipe_saved = await recipe.save();
+    res.status(201).json(recipe_saved); // c
    
-
     }catch(error){
 
        res.status(400).json({
@@ -111,20 +111,3 @@ exports.delete = async (req,res,next) =>{
         });
     }
 }
-
-//buscar
-exports.search =async (req,res,next)=> {
-    try {
-    
-          const recipes =await Recipes.find({
-              name: new RegExp(req.params.query,'i'),
-            });
-        res.json(recipes);
-         
-        
-    } catch (error) {
-        res.status(400).json({
-            message:'Error al procesar la peticion'
-        });
-    }
-    };

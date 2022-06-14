@@ -77,16 +77,18 @@ exports.update = async (req,res,next) =>{
         let request = req.body;
          request.date_modified = new Date();
 
-        const recipe = await Recipes.findByIdAndUpdate({_id: req.params.id},req.body,{new:true}) 
+         let body = req.body;
+         let user = await UserService.getUser(req.headers.authorization);
 
-    
-        if(!recipe){
+         if (body.user_id == user.id){
+
+        const recipe = await Recipes.findByIdAndUpdate({_id: req.params.id},body,{new:true});
+        res.status(201).json(recipe); // c
+         }else{
             res.status(404).json({
-                message: 'La receta no existe'
+                message: 'usuario inexistente'
             });
-        }
-        res.json(recipe);
-        
+        }        
     } catch (error) {
         res.status(400).json({
             message:'Error al procesar la peticion'

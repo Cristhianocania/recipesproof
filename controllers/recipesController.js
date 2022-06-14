@@ -1,6 +1,6 @@
 //importamos modelo Recipes
 const Recipes= require ('../models/Recipes');
-const UserService = require ("../utils/UserService")
+const UserService = require ("../services/UserService")
 
 
 //agregar receta

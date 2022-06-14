@@ -2,7 +2,6 @@
 
 const express = require ('express');
 const router = express.Router();
-const axiosCx = require('../utils/UserService');
 
 
 //importacionde controladores

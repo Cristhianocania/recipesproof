@@ -6,15 +6,20 @@ const recipesSchema = new Schema({
 
     title:{
         type: String,
-        trim: true
+        trim: true,
+        default:"Sin titulo"
     },
     ingredients:{
         type: String,
-        trim: true
+        trim: true,
+        default:"Sin ingredientes"
+
     },
     preparation:{
         type: String,
-        trim: true
+        trim: true,
+        default:"Sin pasos"
+
     },
     image:{
         type: String,

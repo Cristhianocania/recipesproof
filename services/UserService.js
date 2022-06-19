@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-let url= 'https://holamundo-prueba.herokuapp.com/users/me';
+let url= 'https://holamundo-prueba.herokuapp.com/me';
 
 let  config = {
     headers: {
@@ -13,7 +13,7 @@ getUser = async (token)=> {
 try {
     config.headers.Authorization = token;
     let user = await axios.get(url,config);
-    console.log("fui a Users", user.data);
+    console.log("fui a UserService", user.data);
     return user.data;
 }catch(error){
     res.status(401).json({

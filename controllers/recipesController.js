@@ -18,11 +18,10 @@ try {
     let recipe_saved = await recipe.save();
     console.log("guardada receta",recipe_saved)
     res.status(201).json(recipe_saved); // c
-   
     }catch(error){
 
-       res.status(400).json({
-           message: 'Error al procesar la peticion'
+       res.status(401).json({
+           message: 'token invalido'
     
    })
 }
@@ -68,41 +67,50 @@ exports.show = async (req,res,next) =>{
 
 
 //actulaizar receta
-
 exports.update = async (req,res,next) =>{
 
    
     try {
     
-        let request = req.body;
-         request.date_modified = new Date();
+        let body = req.body;
+         body.date_modified = new Date();
 
-         let body = req.body;
-         let user = await UserService.getUser(req.headers.authorization);
+         
+    console.log("Entre a recetas", req.headers)
+    let user = await UserService.getUser(req.headers.authorization);
+    console.log("recipes, fuia user de actualizar", user.id);
 
-         if (body.user_id == user.id){
 
-        const recipe = await Recipes.findByIdAndUpdate({_id: req.params.id},body,{new:true});
-        res.status(201).json(recipe); // c
-         }else{
+        const recipe = await Recipes.findByIdAndUpdate({_id: req.params.id},body,{new:true}) 
+
+    
+        if(!recipe){
             res.status(404).json({
-                message: 'usuario inexistente'
+                message: 'La receta no existe'
             });
-        }        
+        }
+        res.status(201).json(recipe);
+        
     } catch (error) {
-        res.status(400).json({
-            message:'Error al procesar la peticion'
+        res.status(401).json({
+            message:'token invalido'
         });
         
     }
 } ;
 
-
 //delete receta
 
 exports.delete = async (req,res,next) =>{
+    
+
+
 
     try {
+
+        let user = await UserService.getUser(req.headers.authorization);
+        console.log("recipes, fuia user de delete", user.id);
+    
         await Recipes.findOneAndDelete(
             {  _id: req.params.id});
             

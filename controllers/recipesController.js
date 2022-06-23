@@ -156,12 +156,12 @@ exports.search =async (req,res,next)=> {
              console.log("recipes, fuia user de delete", user.name);
 
 
-            res.json (user); //se devuelven en json
-
+            res.json (user.data); //se devuelven en json
+            
             }catch(error){
                 console.log(error);
-                res.send(error);
-                next();
+                //res.send(error);
+                //next();
     
             }
     

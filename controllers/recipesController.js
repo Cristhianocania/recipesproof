@@ -130,10 +130,12 @@ exports.delete = async (req,res,next) =>{
 
 exports.search =async (req,res,next)=> {
     try {
-    
+        
+        
           const recipes =await Recipes.find({
-              user_id: req.params.query,
+               user_id: req.params.query
             });
+
         res.json(recipes);
          
         
@@ -142,4 +144,25 @@ exports.search =async (req,res,next)=> {
             message:'Error al procesar la peticion'
         });
     }
+    };
+
+
+    exports.me = async (req,res ) => {
+
+        try{
+
+             let user = await UserService.getUser(req.headers.authorization);
+             console.log("recipes, fuia user de delete", user.id);
+             console.log("recipes, fuia user de delete", user.name);
+
+
+            res.json (user); //se devuelven en json
+
+            }catch(error){
+                console.log(error);
+                res.send(error);
+                next();
+    
+            }
+    
     };

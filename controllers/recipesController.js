@@ -126,4 +126,20 @@ exports.delete = async (req,res,next) =>{
             message:'Error al procesar la peticion'
         });
     }
-}
+};
+
+exports.search =async (req,res,next)=> {
+    try {
+    
+          const recipes =await Recipes.find({
+              user_id: req.params.query,
+            });
+        res.json(recipes);
+         
+        
+    } catch (error) {
+        res.status(400).json({
+            message:'Error al procesar la peticion'
+        });
+    }
+    };

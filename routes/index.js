@@ -11,6 +11,8 @@ const recipesController = require('../controllers/recipesController');
 module.exports = function() {          //function que genere las rutas
  
     router.get('/recipes', recipesController.list);
+   router.get('/userid/:query', recipesController.search);
+
     router.post('/recipes', recipesController.add); 
     router.put('/recipes/:id', recipesController.update);
     router.delete('/recipes/:id',recipesController.delete);

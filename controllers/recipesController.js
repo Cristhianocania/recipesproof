@@ -147,7 +147,7 @@ exports.search =async (req,res,next)=> {
     };
 
 
-    exports.me = async (req,res ) => {
+    exports.me = async (req,res,next ) => {
 
         try{
 
@@ -160,8 +160,8 @@ exports.search =async (req,res,next)=> {
             
             }catch(error){
                 console.log(error);
-                //res.send(error);
-                //next();
+                res.send(error);
+                next();
     
             }
     

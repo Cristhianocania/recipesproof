@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-let url= 'https://holamundo-prueba.herokuapp.com/me';
+let url= 'https://backend-recetarioirso.herokuapp.com/me';
 
 let  config = {
     headers: {

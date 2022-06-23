@@ -147,22 +147,4 @@ exports.search =async (req,res,next)=> {
     };
 
 
-    exports.me = async (req,res,next ) => {
-
-        try{
-
-             let user = await UserService.getUser(req.headers.authorization);
-             console.log("recipes, fuia user de delete", user.id);
-             console.log("recipes, fuia user de delete", user.name);
-
-
-            res.json (user.data); //se devuelven en json
-            
-            }catch(error){
-                console.log(error);
-                res.send(error);
-                next();
-    
-            }
-    
-    };
+  
